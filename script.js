@@ -219,3 +219,77 @@ window.addEventListener('load', () => {
     confetti({ particleCount: 150, spread: 70, origin: { y: 0.5 } });
   });
   
+  const heart = document.querySelector(".paper.heart");
+const clickSound = document.getElementById("click-sound");
+
+const triggerHeartTap = (e) => {
+  if (navigator.vibrate) {
+    navigator.vibrate(50);
+  }
+
+  clickSound.currentTime = 0;
+  clickSound.play();
+
+  const x = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+  const y = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
+  burstHearts(x, y);
+};
+
+heart.addEventListener("click", triggerHeartTap);
+heart.addEventListener("touchend", triggerHeartTap);
+
+
+  function burstHearts(x, y) {
+    for (let i = 0; i < 8; i++) {
+      const heart = document.createElement("div");
+      heart.textContent = "❤️";
+      heart.style.position = "fixed";
+      heart.style.left = `${x}px`;
+      heart.style.top = `${y}px`;
+      heart.style.fontSize = "16px";
+      heart.style.pointerEvents = "none";
+      heart.style.opacity = 1;
+  
+      const angle = Math.random() * 2 * Math.PI;
+      const radius = Math.random() * 60 + 20;
+      const dx = Math.cos(angle) * radius;
+      const dy = Math.sin(angle) * radius;
+  
+      document.body.appendChild(heart);
+  
+      heart.animate(
+        [
+          { transform: `translate(0, 0)`, opacity: 1 },
+          { transform: `translate(${dx}px, ${dy}px)`, opacity: 0 }
+        ],
+        {
+          duration: 800,
+          easing: "ease-out"
+        }
+      );
+  
+      setTimeout(() => heart.remove(), 800);
+    }
+  }
+  
+  document.addEventListener("click", (e) => {
+    const balloon = document.createElement("div");
+    balloon.textContent = "🎈";
+    balloon.style.position = "fixed";
+    balloon.style.left = `${e.clientX}px`;
+    balloon.style.top = `${e.clientY}px`;
+    balloon.style.fontSize = "30px";
+    balloon.style.opacity = 1;
+    balloon.style.transition = "transform 2s ease-out, opacity 2s ease-out";
+    document.body.appendChild(balloon);
+  
+    requestAnimationFrame(() => {
+      balloon.style.transform = `translateY(-200px)`;
+      balloon.style.opacity = 0;
+    });
+  
+    setTimeout(() => {
+      balloon.remove();
+    }, 2000);
+  });
+  
