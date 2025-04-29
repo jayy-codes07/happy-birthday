@@ -273,23 +273,25 @@ heart.addEventListener("touchend", triggerHeartTap);
   }
   
   document.addEventListener("touchend", (e) => {
-    const balloon = document.createElement("div");
-    balloon.textContent = "⭐";
-    balloon.style.position = "fixed";
-    balloon.style.left = `${e.clientX}px`;
-    balloon.style.top = `${e.clientY}px`;
-    balloon.style.fontSize = "30px";
-    balloon.style.opacity = 1;
-    balloon.style.transition = "transform 2s ease-out, opacity 2s ease-out";
-    document.body.appendChild(balloon);
-  
-    requestAnimationFrame(() => {
-      balloon.style.transform = `translateY(-200px)`;
-      balloon.style.opacity = 0;
-    });
-  
-    setTimeout(() => {
-      balloon.remove();
-    }, 2000);
+  const touch = e.changedTouches[0]; // ✅ Get actual touch position
+  const balloon = document.createElement("div");
+  balloon.textContent = "⭐";
+  balloon.style.position = "fixed";
+  balloon.style.left = `${touch.clientX}px`;
+  balloon.style.top = `${touch.clientY}px`;
+  balloon.style.fontSize = "30px";
+  balloon.style.opacity = 1;
+  balloon.style.transition = "transform 2s ease-out, opacity 2s ease-out";
+  document.body.appendChild(balloon);
+
+  requestAnimationFrame(() => {
+    balloon.style.transform = `translateY(-200px)`;
+    balloon.style.opacity = 0;
   });
+
+  setTimeout(() => {
+    balloon.remove();
+  }, 3000);
+});
+
   
