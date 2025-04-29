@@ -274,7 +274,7 @@ heart.addEventListener("touchend", triggerHeartTap);
   
   document.addEventListener("touchend", (e) => {
     const balloon = document.createElement("div");
-    balloon.textContent = "🎈";
+    balloon.textContent = "⭐️";
     balloon.style.position = "fixed";
     balloon.style.left = `${e.clientX}px`;
     balloon.style.top = `${e.clientY}px`;
