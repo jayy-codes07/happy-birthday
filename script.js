@@ -272,7 +272,7 @@ heart.addEventListener("touchend", triggerHeartTap);
     }
   }
   
-  document.addEventListener("click", (e) => {
+  document.addEventListener("touchend", (e) => {
     const balloon = document.createElement("div");
     balloon.textContent = "🎈";
     balloon.style.position = "fixed";
