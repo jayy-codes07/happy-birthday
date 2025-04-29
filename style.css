@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+
+
+
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 1000px;
+  /* background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg"); */
+  background-image: url("https://i.pinimg.com/736x/7b/a3/e1/7ba3e153b71a2abf7e44eded8a72e3e2.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+body {
+  overflow: hidden;
+  touch-action: none; /* Optional but improves stability */
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+body::before {
+  content: "❤️";
+  position: absolute;
+  animation: float 5s infinite ease-in-out;
+  /* Use multiple elements for more hearts */
+}
+.heart {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+.paper {
+    
+  background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
+  background-size: 500px;
+  background-position: center center;
+  padding: 20px 100px;
+/*  min-width: 800px; */
+  
+  transform: rotateZ(-10deg);
+  box-shadow: 1px 15px 20px 0px rgba(0,0,0,0.5);
+  
+  position: absolute;
+}
+.paper1{
+  transform: rotateZ(15deg);
+}
+
+.paper2{
+  transform: rotateZ(10deg);
+}
+
+.paper.heart {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.paper.image {
+  padding: 5px;
+}
+.paper.image p {
+  font-size: 50px;
+}
+
+img {
+  max-height: 400px;
+  width: 100%;
+  user-select: none;
+}
+
+.paper {
+  opacity: 0;
+  transform: translateY(100px) rotateZ(-10deg);
+  position: absolute;
+  transition: transform 0.1s;
+}
+
+/* .paper.show {
+  opacity: 1;
+  transform: translateY(0) rotateZ(-10deg);
+} */
+
+.paper.show {
+  opacity: 1;
+  transform: rotateZ(-10deg); /* No translateY here! */
+}
+
+
+.paper.heart::after {
+  content: "";
+  background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 150px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+
+p {
+    font-family: 'Zeyada', cursive;
+    font-size: 50px;
+    color: rgb(0,0,100);
+    opacity: 0.95;
+    user-select: none;
+    filter: drop-shadow(2px 1.5px 1px rgba(0,0,105,0.9));
+  }
+  
+
+/* p {
+  font-family: 'Zeyada';
+  font-size: 50px;
+  color: rgb(0,0,100);
+  opacity: 0.75;
+  user-select: none;
+  
+ filter: drop-shadow(2px 1.5px 1px rgba(0,0,105,0.9));
+} */
+
+h3{
+  height: 10%;
+    width: 60%;
+   float: right;
+   font-size: 1.3vh;
+   font-family: 'Courier New', Courier, monospace;
+   margin: 40px;
+
+}
